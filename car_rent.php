@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html style="background-color: #0dab7c">
     <heaad>
-        <title>service_upload </title>
+        <title> </title>
         <meta charset = "utf-8">
     </heaad>
     <body style="margin-left:500px">
-    <h1 style="margin-left:-100px">Please Fill about your services</h1><br>
+    <h1 style="margin-left:-100px">Please Fill about the car you want to rent</h1><br>
         <form method="post" action = "posting.php" enctype="multipart/form-data">
             <fieldset style="width:200px;height:50px">
-                <legend>Type of service</legend>
-                <select name="type_of_service">
-                    <option value='house for rental'>rent house</option>
-                    <option value='house to sell'>sell house</option>
-                    <option value='car to sell'>car sell</option>
-                    <option value='car for rent'>car rent</option>
+                <legend>name of car</legend>
+                <select name="type_of_car">
+                    <option value=''>corolla</option>
+                    <option value=''>vitz</option>
+                    <option value=''>dolphin</option>
+                    <option value=''>hilux</option>
+                    <option value=''>rav4</option>
+                    <option value=''>hyundai</option>
+                    <option value=''>CHR</option>
                 </select>
             </fieldset><br>
-            Company/personal Name:<br>
-            <input type="txt" name="company_name" required><br><br>
-            service Name:<br>
-            <input type="txt" name="product_name" required><br><br>
-            Price of service:<br>
-            <input type="txt" name="price" required><br><br>
-            Description About service:<br>
-            <textarea  name="description" rows="10" cols="25" required></textarea><br><br>
-            Photo of Prodcut:
+            model:<br>
+            <input type="txt" name="date_of_product" required><br><br>
+            plate:<br>
+            <input type="txt" name="plate_number" required><br><br>
+            period:<br>
+            <input type="txt" name="number_of_days" required><br><br>
+            price/period:<br>
+            <input type="txt" name="price_per_period" required><br><br>
+            
+            Photo of car:
             <input type="file" name="image" required><br><br>
             
             <input type="submit" name="submit" value="submit">
@@ -37,7 +41,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$dbname = "noticeboar";
+$dbname = "hacross";
 
 $conn = new mysqli($server,$username,$password,$dbname);
 if($conn!=TRUE)
@@ -45,11 +49,10 @@ echo "error:".$conn->connect_error;
 
    if(isset($_POST["submit"]))
    {
-       $type = $_POST['hotel'];
-       $comp_name = $_POST['company_name'];
-       $prod_name = $_POST['product_name'];
+       $type = $_POST['car'];
+       $car_name = $_POST['cartype'];
+       $car_model = $_POST['model'];
        $price = $_POST['price'];
-       $descr = $_POST['description'];
 
        
        $file_name = $_FILES['image']['name'];
@@ -57,8 +60,8 @@ echo "error:".$conn->connect_error;
        $tempname = $_FILES['image']['tmp_name'];
        $target_file = $location.basename($file_name);
          
-       $sql = "INSERT INTO $type(company_name, product_name, product_file, description,price) 
-               VALUES('$comp_name', '$prod_name', '$file_name', '$descr', '$price')";
+       $sql = "INSERT INTO $type(car, cartype, model, price) 
+               VALUES('$car_name', '$car_model', '$file_name', '$price')";
         $store = $conn->query($sql);
         if($store!=TRUE)
            echo "error".$conn->error;
