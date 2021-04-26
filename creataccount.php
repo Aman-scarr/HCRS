@@ -10,14 +10,14 @@
   </div>
 	
   <form method="post" action="creataccount.php">
-  <?php include('errors.php'); ?>
+  
   	<div class="input-group">
   	  <label>Username</label>
-  	  <input type="text" name="username" value="<?php echo $username; ?>">
+  	  <input type="text" name="username">
   	</div>
   	<div class="input-group">
   	  <label>Email</label>
-  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	  <input type="email" name="email">
   	</div>
   	<div class="input-group">
   	  <label>Password</label>
@@ -31,5 +31,8 @@
   	  <button type="submit" class="btn" name="reg_user">Creataccount</button>
   	</div>
   </form>
+  <?php include('index.php');?>
+  <?php include('error.php'); ?>
+
 </body>
 </html>
