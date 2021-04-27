@@ -9,7 +9,7 @@
   	<h2>Creataccount</h2>
   </div>
 	
-  <form method="post" action="creataccount.php">
+  <form method="post" action="createaccount.php">
   
   	<div class="input-group">
   	  <label>Username</label>
@@ -28,7 +28,7 @@
   	  <input type="password" name="password_2">
   	</div>
   	<div class="input-group">
-  	  <button type="submit" class="btn" name="reg_user">Creataccount</button>
+  	  <button type="submit" class="btn" name="reg_user">Createsaccount</button>
   	</div>
   </form>
   <?php include('index.php');?>
