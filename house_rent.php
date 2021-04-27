@@ -36,6 +36,7 @@
 </html>
 
 <?php 
+include 'connection.php';
 $server = "localhost";
 $username = "root";
 $password = "";

@@ -6,7 +6,7 @@
     </heaad>
     <body style="margin-left:500px">
     <h1 style="margin-left:-100px">Please Fill about the car you want to rent</h1><br>
-        <form method="post" action = "posting.php" enctype="multipart/form-data">
+        <form method="post" action = "car_rent.php" enctype="multipart/form-data">
             <fieldset style="width:200px;height:50px">
                 <legend>name of car</legend>
                 <select name="type_of_car">
@@ -32,16 +32,17 @@
             <input type="file" name="image" required><br><br>
             
             <input type="submit" name="submit" value="submit">
-            <button><a href="home.html">Back</a></button>
+            <button><a href="start_upload.php">Back</a></button>
         </form>
     </body>
 </html>
 
 <?php 
+include 'connection.php';
 $server = "localhost";
 $username = "root";
 $password = "";
-$dbname = "hacross";
+$dbname = "HACROSS";
 
 $conn = new mysqli($server,$username,$password,$dbname);
 if($conn!=TRUE)
@@ -49,7 +50,7 @@ echo "error:".$conn->connect_error;
 
    if(isset($_POST["submit"]))
    {
-       $type = $_POST['car'];
+       $type = $_POST['car_rent'];
        $car_name = $_POST['cartype'];
        $car_model = $_POST['model'];
        $price = $_POST['price'];
